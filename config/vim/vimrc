@@ -1,0 +1,140 @@
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+let mapleader=","
+set number
+set numberwidth=2
+set tabstop=4
+set softtabstop=4
+set expandtab
+set cursorline
+set backspace=indent,eol,start
+
+"---------------------------SEARCH-SETTINGS-------------------------"
+set incsearch
+set hlsearch
+
+"---------------------------COLORSCHEME-------------------------"
+colorscheme TomorrowNightEighties
+set t_CO=256
+set guifont=Monaco:h13
+set linespace=3
+
+" Disable GUI scrollbars
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+
+" Change how tabs display, and always display them
+set guioptions-=e
+set showtabline=2
+"---------------------------MAPPINGS-------------------------"
+" map maps to all modes
+" nmap maps to normal mode
+" imap maps to insert mode
+" etc
+
+" Press comma + space to clear highlighting from a search.
+nnoremap <leader><space> :nohlsearch<CR>
+" Press comma + ev to edit the current .vimrc file.
+nnoremap <leader>ev :tabedit $MYVIMRC<CR>
+" Press comma + 1 to move to the previous tab.
+nnoremap <leader>1 :tabprevious<CR>
+" Press comma + 2 to move to the next tab.
+nnoremap <leader>2 :tabnext<CR>
+" Press comma + f to search for a ctag:
+nnoremap <leader>f :tag<space>
+
+"---------------------------WINDOW-SPLITS-------------------------"
+" Press comma + a to switch between sides of a vertical split
+nnoremap <leader>a <C-W>w
+" Press comma + z to make the current split full-screen.
+nnoremap <leader>z <C-W>\|
+" Press comma + x to normalize the split sizes.
+nnoremap <leader>x <C-W>=
+set splitbelow
+set splitright
+
+"---------------------------AUTO-COMMANDS-------------------------"
+" Auto source the .vimrc file on save.
+augroup autosourcing
+    autocmd!
+    autocmd BufWritePost .vimrc source %
+augroup END
+
+"---------------------------PLUGIN-SPECIFIC-SETTINGS-------------------------"
+"---------------------------NERDTREE-------------------------"
+if isdirectory(expand("~/.vim/bundle/nerdtree"))
+	map <leader>e :NERDTreeFind<CR>
+	let NERDTreeHighlightCursorline = 1
+	let NERDTreeMouseMode = 2
+	let NERDTreeQuitOnOpen = 1
+    let NERDTreeHijackNetrw = 0
+endif
+
+"---------------------------PIV-------------------------"
+if isdirectory(expand("~/.vim/bundle/PIV"))
+	let g:DisableAutoPHPFolding = 0
+	let g:PIVAutoClose = 0
+endif
+
+"---------------------------DelimitMate-------------------------"
+if isdirectory(expand("~/.vim/bundle/delimitMate"))
+    let delimitMate_autoclose = 1
+    let delimitMate_matchpairs = "(:),[:],{:},<:>"
+endif
+
+"---------------------------Neocomplcache-------------------------"
+if isdirectory(expand("~/.vim/bundle/neocomplcache.vim"))
+    let g:neocomplcache_enable_at_startup = 1
+    let g:neocomplcache_enable_camel_case_completion = 1
+    let g:neocomplcache_enable_smart_case = 1
+    let g:neocomplcache_enable_underbar_completion = 1
+    let g:neocomplcache_enable_auto_delimiter = 1
+    let g:neocomplcache_max_list = 15
+    let g:neocomplcache_force_overwrite_completefunc = 1
+    let g:neocomplcache_dictionary_filetype_lists = {
+                \ 'default' : '',
+                \ 'vimshell' : $HOME.'/.vimshell_hist',
+                \ 'scheme' : $HOME.'/.gosh_completions'
+                \ }
+    imap <C-k> <Plug>(neosnippet_expand_or_jump)
+    smap <C-k> <Plug>(neosnippet_expand_or_jump)
+endif
+
+"---------------------------Syntastic-------------------------"
+if isdirectory(expand("~/.vim/bundle/syntastic"))
+    set statusline+=%#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+
+    let g:syntastic_always_populate_loc_list = 1
+    let g:syntastic_auto_loc_list = 1
+    let g:syntastic_check_on_open = 0
+    let g:syntastic_check_on_wq = 0
+endif
+
+"---------------------------Vim-Autoclose-------------------------"
+if isdirectory(expand("~/.vim/bundle/vim-autoclose"))
+    let g:autoclose_vim_commentmode = 1
+endif
+
+"---------------------------CTRL-P-------------------------"
+if isdirectory(expand("~/.vim/bundle/ctrlp.vim"))
+    let g:ctrlp_map = '<c-p>'
+    let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+    let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:30,results:30'
+    nnoremap <leader>r :CtrlPMRUFiles<CR>
+    nnoremap <leader>m :CtrlPBufTag<CR>
+endif
+
+"---------------------------Vim-Multiple-Cursors-------------------------"
+if isdirectory(expand("~/.vim/bundle/vim-multiple-cursors"))
+    let g:multi_cursor_use_default_mapping=0
+    let g:multi_cursor_next_key='<C-n>'
+    let g:multi_cursor_prev_key='<C-b>'
+    let g:multi_cursor_skip_key='<C-m>'
+    let g:multi_cursor_quit_key='<Esc>'
+endif
+
