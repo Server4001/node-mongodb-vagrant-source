@@ -1,9 +1,10 @@
 # node-mongodb-vagrant-source
 
-### Source environment for my Node.js & MongoDB vagrant box
+### Source environment for my Node.js & MongoDB vagrant box on CentOS
 
 ## Versions
 
+* CentOS v6.7
 * Node.js v4.2.4
 * NPM v2.14.12
 * Nodemon v1.9.1
