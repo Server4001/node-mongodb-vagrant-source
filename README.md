@@ -28,3 +28,7 @@
 * Test out the box by going to a different folder, running `vagrant init node-mongodb-010`, and changing the `Vagrantfile` to fit your needs. Next, run `vagrant up`, and ensure everything is working.
 * Create a new version on Atlas.
 * Add a new provider to the version. The type should be `virtualbox`. Upload the `.box` file output by the `vagrant package` command above.
+
+## TODO
+
+* Re-build the environment with a new version and test that the rlimit warning when using MongoDB shell no longer appears, because of config file: `99-mongodb-nproc.conf`.

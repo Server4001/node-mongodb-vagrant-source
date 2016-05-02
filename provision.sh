@@ -27,6 +27,7 @@ sudo service nginx start
 sudo cp /vagrant/config/mongodb/mongodb-org-3.2.repo /etc/yum.repos.d/mongodb-org-3.2.repo
 sudo yum install -y mongodb-org
 sudo cp /vagrant/config/mongodb/mongod.conf /etc/mongod.conf
+sudo cp /vagrant/config/mongodb/99-mongodb-nproc.conf /etc/security/limits.d/99-mongodb-nproc.conf
 sudo service mongod start
 sudo chkconfig mongod on
 
