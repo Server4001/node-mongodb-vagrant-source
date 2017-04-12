@@ -1,8 +1,11 @@
 # node-mongodb-vagrant-source
 
-### Source environment for my Node.js & MongoDB vagrant box on CentOS
+## Source environment for my Node.js & MongoDB vagrant box on CentOS
 
-## Versions
+**NOTE:** This is the environment used to build the Vagrant box. If you are looking for an Node.js environment, just use the box: [server4001/node-mongodb-centos](https://atlas.hashicorp.com/server4001/boxes/node-mongodb-centos).
+
+
+### Versions
 
 * CentOS v6.7
 * Node.js v7.9.0
@@ -16,7 +19,7 @@
 * Beanstalkd v1.10
 * Redis v2.4.10
 
-## Instructions
+### Instructions
 
 * `vagrant up`
 * Make any changes you need to the box. Be sure to reflect these changes in the `provision.sh` script.
